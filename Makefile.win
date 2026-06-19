@@ -1,0 +1,40 @@
+# Project: ProyectoFinalMultimedia
+# Makefile created by Embarcadero Dev-C++ 6.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o src/production.o src/utils.o src/fileio.o src/report.o
+LINKOBJ  = main.o src/production.o src/utils.o src/fileio.o src/report.o
+LIBS     = -L"C:/Users/MAYRA/OneDrive/Desktop/Cosas de Nicole/Dev-Cpp/TDM-GCC-64/lib" -L"C:/Users/MAYRA/OneDrive/Desktop/Cosas de Nicole/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Users/MAYRA/OneDrive/Desktop/Cosas de Nicole/Dev-Cpp/TDM-GCC-64/include" -I"C:/Users/MAYRA/OneDrive/Desktop/Cosas de Nicole/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Users/MAYRA/OneDrive/Desktop/Cosas de Nicole/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"include"
+CXXINCS  = -I"C:/Users/MAYRA/OneDrive/Desktop/Cosas de Nicole/Dev-Cpp/TDM-GCC-64/include" -I"C:/Users/MAYRA/OneDrive/Desktop/Cosas de Nicole/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"C:/Users/MAYRA/OneDrive/Desktop/Cosas de Nicole/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"C:/Users/MAYRA/OneDrive/Desktop/Cosas de Nicole/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++" -I"include"
+BIN      = ProyectoFinalMultimedia.exe
+CXXFLAGS = $(CXXINCS) -std=c++17
+CFLAGS   = $(INCS) 
+DEL      = C:\Users\MAYRA\OneDrive\Desktop\Cosas de Nicole\Dev-Cpp\DevCpp.exe INTERNAL_DEL
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${DEL} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+src/production.o: src/production.cpp
+	$(CPP) -c src/production.cpp -o src/production.o $(CXXFLAGS)
+
+src/utils.o: src/utils.cpp
+	$(CPP) -c src/utils.cpp -o src/utils.o $(CXXFLAGS)
+
+src/fileio.o: src/fileio.cpp
+	$(CPP) -c src/fileio.cpp -o src/fileio.o $(CXXFLAGS)
+
+src/report.o: src/report.cpp
+	$(CPP) -c src/report.cpp -o src/report.o $(CXXFLAGS)
